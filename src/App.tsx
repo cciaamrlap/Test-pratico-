@@ -1526,9 +1526,6 @@ export default function App() {
                 </div>
               )}
             </div>
-            <span className="font-display font-semibold text-sm sm:text-base tracking-tight text-white truncate">
-              Sportello Composizione Negoziata della Crisi
-            </span>
           </div>
 
           {/* Zone 2: Clean single-line step navigation */}
