@@ -4,13 +4,11 @@ Applicazione web istituzionale (100% client-side, anonima e riservata) per la si
 
 ## Pubblicazione su GitHub Pages
 
-Il repository include il workflow automatico [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) che compila l'applicazione React/Vite e pubblica la cartella `dist/` su GitHub Pages.
+Sono supportate tutte le modalità di pubblicazione su GitHub Pages (**Settings → Pages**):
 
-1. Apri le impostazioni del repository su GitHub: **Settings → Pages**.
-2. Alla voce **Build and deployment → Source**, seleziona **GitHub Actions** (non *Deploy from a branch*).
-3. Esegui un push sul branch `main` (oppure avvia manualmente il workflow dalla scheda **Actions → Pubblica su GitHub Pages → Run workflow**).
-
-> **Nota tecnica**: Non pubblicare direttamente il branch sorgente senza compilazione (`Deploy from a branch / root`), poiché il browser non può eseguire direttamente i sorgenti TypeScript/React (`.tsx`) e GitHub Pages mostrerebbe il `README.md` anziché l'applicazione compilata.
+- **Opzione 1 (Consigliata) — GitHub Actions**: imposta **Source: GitHub Actions**. Il workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) compila automaticamente `dist/` ad ogni push su `main`/`master`.
+- **Opzione 2 — Deploy from a branch (`/docs`)**: imposta **Source: Deploy from a branch**, branch `main` e cartella `/docs`. La build statica già compilata è presente nella cartella `docs/`.
+- **Opzione 3 — Deploy from a branch (`/root`)**: anche lasciando la cartella radice `/ (root)`, la pagina reindirizza automaticamente alla versione compilata in `./docs/`.
 
 ## Sviluppo locale
 
@@ -19,8 +17,9 @@ npm install
 npm run dev
 ```
 
-Per generare il pacchetto statico di produzione nella cartella `dist/`:
+Per aggiornare sia `dist/` sia la build statica in `docs/`:
 
 ```bash
 npm run build
+npx vite build --outDir docs
 ```

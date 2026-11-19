@@ -28,5 +28,21 @@
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-slate-900 selection:text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      (function () {
+        var devScript = document.querySelector('script[src="/src/main.tsx"]');
+        if (!devScript) return;
+        function fallbackToDocs() {
+          if (window.__APP_MOUNTED__) return;
+          var root = document.getElementById('root');
+          if (root && root.childElementCount > 0) return;
+          if (window.location.pathname.indexOf('/docs') === -1) {
+            window.location.replace('./docs/');
+          }
+        }
+        devScript.addEventListener('error', fallbackToDocs);
+        window.setTimeout(fallbackToDocs, 1200);
+      })();
+    </script>
   </body>
 </html>
