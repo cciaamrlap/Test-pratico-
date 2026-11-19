@@ -1,11 +1,26 @@
-<div align="center">
+# Pre-Check Composizione Negoziata — Test Pratico Ministeriale
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Applicazione web istituzionale (100% client-side, anonima e riservata) per la simulazione del **Test Pratico Ministeriale di sostenibilità del debito** (Decreto Dirigenziale — Sezione I, Codice della Crisi d'Impresa e dell'Insolvenza).
 
-  <h1>Built with AI Studio</h2>
+## Pubblicazione su GitHub Pages
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+Il repository include il workflow automatico [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) che compila l'applicazione React/Vite e pubblica la cartella `dist/` su GitHub Pages.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+1. Apri le impostazioni del repository su GitHub: **Settings → Pages**.
+2. Alla voce **Build and deployment → Source**, seleziona **GitHub Actions** (non *Deploy from a branch*).
+3. Esegui un push sul branch `main` (oppure avvia manualmente il workflow dalla scheda **Actions → Pubblica su GitHub Pages → Run workflow**).
 
-</div>
+> **Nota tecnica**: Non pubblicare direttamente il branch sorgente senza compilazione (`Deploy from a branch / root`), poiché il browser non può eseguire direttamente i sorgenti TypeScript/React (`.tsx`) e GitHub Pages mostrerebbe il `README.md` anziché l'applicazione compilata.
+
+## Sviluppo locale
+
+```bash
+npm install
+npm run dev
+```
+
+Per generare il pacchetto statico di produzione nella cartella `dist/`:
+
+```bash
+npm run build
+```

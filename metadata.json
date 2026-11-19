@@ -1,0 +1,6 @@
+{
+  "name": "Pre-Check Composizione Negoziata — Test Pratico Ministeriale",
+  "description": "Simulazione anonima e riservata del Test Pratico Ministeriale di sostenibilità del debito (Decreto Dirigenziale — Sezione I) per lo Sportello Composizione Negoziata della Camera di Commercio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
